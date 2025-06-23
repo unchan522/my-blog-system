@@ -1,0 +1,19 @@
+.theme-button-container {
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* TODO: 仮背景 */
+  /* background-color: var(--background-theme-change-button); */
+}
+
+.light {
+  color: black;
+}
+
+.dark {
+  color: white;
+}

@@ -1,0 +1,40 @@
+:root {
+  /* --background-color-main: #1a1e2e; */
+  --background-color-main: #2a7b9b;
+  --background-color-sub1: #2c3147;
+  --background-theme-change-button: #fbd38d;
+
+  --body-text-color: rgba(255, 255, 255, 0.92);
+  --text-color-gray1: rgba(228, 232, 250, 0.55);
+  --span-color-main: rgba(228, 232, 250, 0.55);
+  --menu-link-color: rgba(228, 232, 250, 0.55);
+  --sns-link-color: #69e1db;
+}
+
+[data-theme='light'] {
+  /* --background-color-main: rgb(240, 231, 219); */
+  --background-color-main: #f0e7db;
+  --background-color-sub1: #fff;
+  --background-theme-change-button: #805ad5;
+
+  --body-text-color: #1a202c;
+  --span-color-main: rgba(60, 60, 60, 0.55);
+  --sns-link-color: #459b96;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image:
+    radial-gradient(circle farthest-side at 0 100%, #00ccb1, #0000),
+    radial-gradient(circle farthest-side at 100% 0, #7b61ff, #0000),
+    radial-gradient(circle farthest-side at 100% 100%, #ffc414, #0000),
+    radial-gradient(circle farthest-side at 0 0, #1ca0fb, #141316);
+}

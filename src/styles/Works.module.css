@@ -1,0 +1,27 @@
+.main-container {
+  min-height: calc(100vh - 75px - 60px);
+  /* background-color: var(--background-color-main); */
+}
+
+.main-inner {
+  max-width: 800px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 30px;
+  color: var(--body-text-color);
+  padding-top: 40px;
+}
+
+.under-construction {
+  display: flex;
+  column-gap: 16px;
+  margin-top: 40px;
+}
+
+.under-construction p {
+  font-size: 24px;
+  font-weight: bold;
+}

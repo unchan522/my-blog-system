@@ -1,0 +1,10 @@
+.eye-catch {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.eye-catch img {
+  width: 100%;
+}
