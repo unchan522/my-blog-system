@@ -11,5 +11,8 @@
     "editor.renderWhitespace": "all",
     "editor.acceptSuggestionOnEnter": "off",
     "files.trimTrailingWhitespace": false
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }

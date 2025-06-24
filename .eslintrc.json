@@ -1,3 +1,5 @@
+// DEPRECATED
+// This file is deprecated and will be removed in future versions. Please use the new ESLint configuration format.
 {
   "extends": [
     "eslint:recommended",
