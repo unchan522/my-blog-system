@@ -1,15 +1,13 @@
-// 'use client';
-
 import Head from 'next/head';
 
 import { CircleIcon } from '@/components/CircleIcon/CircleIcon';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { YouTubeOverlay } from '@/components/YouTubeOverlay.tsx/YoutubeOverlay';
+import { ArticlesProps } from '@/types/article';
+import { getAllArticles } from '@/utils/articles';
 
 import style from '../styles/Home.module.css';
-import { getAllArticles } from '@/utils/articles';
-import { ArticlesProps } from '@/types/article';
 
 export default function Home({ articles }: ArticlesProps) {
   const imageStyle = {

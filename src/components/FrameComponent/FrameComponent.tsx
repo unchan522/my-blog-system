@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import VideoOverlayContext from '../../providers/VideoContext';
 
 export interface FrameProps {

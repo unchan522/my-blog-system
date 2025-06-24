@@ -1,5 +1,7 @@
 import { useContext, useEffect } from 'react';
+
 import VideoOverlayContext from '@/providers/VideoContext';
+
 import styles from './style.module.css';
 
 type FCProps = {

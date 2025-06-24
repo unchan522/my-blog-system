@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import VideoOverlayContext from '@/providers/VideoContext';
+
 // import { MainDiv } from '../MainDiv/MainDiv';
 import BodyComposer from '../BodyComposer/BodyComposer';
 

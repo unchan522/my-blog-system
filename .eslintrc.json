@@ -17,25 +17,26 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    // "no-else-return": "error",
-    // "object-shorthand": "error",
-    // "no-magic-numbers": "warn",
-    // "camelcase": "error",
-    // "unused-imports/no-unused-imports": "error",
-    // "import/order": [
-    //   "error",
-    //   {
-    //     "groups": [
-    //       "builtin",
-    //       "external",
-    //       "internal"
-    //     ],
-    //     "alphabetize": {
-    //       "order": "asc"
-    //     },
-    //     "newlines-between": "always"
-    //   }
-    // ]
+    "no-else-return": "error",
+    "object-shorthand": "error",
+    "no-magic-numbers": "warn",
+    "camelcase": "error",
+    "unused-imports/no-unused-imports": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ]
   },
   "env": {
     "browser": true,

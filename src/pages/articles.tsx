@@ -1,16 +1,15 @@
-import React from 'react';
-import Link from 'next/link';
 import { compareDesc, parse } from 'date-fns';
-
-import { getAllArticles } from '@/utils/articles';
-import { Article, ArticlesProps } from '@/types/article';
+import Head from 'next/head';
+import Link from 'next/link';
+import React from 'react';
 
 import { EyeCatch } from '@/components/EyeCatch/EyeCatch';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
+import { Article, ArticlesProps } from '@/types/article';
+import { getAllArticles } from '@/utils/articles';
 
 import style from '../styles/Articles.module.css';
-import { Head } from 'next/document';
 
 const Articles = ({ articles }: ArticlesProps) => {
   const sortedArticles = (): Article[] => {
