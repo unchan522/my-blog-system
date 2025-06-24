@@ -1,16 +1,23 @@
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsFillMoonFill, BsSun } from 'react-icons/bs';
 
 import style from './ChangeThemeButton.module.css';
 
 const ChangeThemeButton = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClickChangeTheme = () => {
     if (theme === 'light') setTheme('dark');
     if (theme === 'dark') setTheme('light');
   };
+
+  if (!mounted) return null;
 
   return (
     <div

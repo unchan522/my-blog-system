@@ -20,3 +20,8 @@ export type Article = {
 export type ArticlesProps = {
   articles: Article[];
 };
+
+export type ArticleDetail = Omit<Article, 'slug'> & {
+  frontMatter: Article['fontMatter'];
+  content: string;
+};

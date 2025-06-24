@@ -38,10 +38,10 @@ const Articles = ({ articles }: ArticlesProps) => {
       <Header />
       <main className={style['articles-main-container']}>
         <div className={style['articles-main-inner']}>
-          <h2 className={style['page-title']}>Articles</h2>
-          <div className={style['category-container']}>
+          <h2 className={style['page-title']}>Videos</h2>
+          {/* <div className={style['category-container']}>
             ここにカテゴリが入るよ
-          </div>
+          </div> */}
           <div className={style['articles-container']}>
             {sortedArticles().map((article) => (
               <Link

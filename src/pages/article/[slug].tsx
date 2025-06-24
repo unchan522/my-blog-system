@@ -6,23 +6,13 @@ import markdownToHtml from 'zenn-markdown-html';
 
 import { EyeCatch } from '@/components/EyeCatch/EyeCatch';
 import { Footer } from '@/components/Footer/Footer';
+import { FrameComponent } from '@/components/FrameComponent/FrameComponent';
 import { Header } from '@/components/Header/Header';
+import { ArticleDetail } from '@/types/article';
 
 import style from './Article.module.css';
 
-type ArticleProps = {
-  fontMatter: {
-    title: string;
-    emoji: string;
-    type?: string;
-    topics?: string[];
-    published: boolean;
-    publishedAt?: string;
-  };
-  content: string;
-};
-
-function Article({ fontMatter, content }: ArticleProps) {
+function Article({ fontMatter, content }: ArticleDetail) {
   // Warning: Prop `dangerouslySetInnerHTML` did not match.
   // エラーのため一時的にクライアントのhtml文字列にtabindexを付与している
   const markdownContent = markdownToHtml(content).replace(
@@ -46,15 +36,21 @@ function Article({ fontMatter, content }: ArticleProps) {
             <h2 className={style.title}>{fontMatter.title}</h2>
           </div>
           {fontMatter.publishedAt ? (
-            <p className={style.published}>公開: {fontMatter.publishedAt}</p>
+            <p className={style.published}>Public: {fontMatter.publishedAt}</p>
           ) : (
-            <p className={style.published}>公開: 未設定</p>
+            <p className={style.published}>Public: Not set</p>
           )}
-          <div
-            className={`znc ${style.content}`}
-            dangerouslySetInnerHTML={{
-              __html: markdownContent,
-            }}
+          {markdownContent && (
+            <div
+              className={`znc ${style.content}`}
+              dangerouslySetInnerHTML={{
+                __html: markdownContent,
+              }}
+            />
+          )}
+          <FrameComponent
+            embedLink={fontMatter.embedLink}
+            style={{ width: '100%', height: '512px', marginTop: '20px' }}
           />
         </div>
       </main>

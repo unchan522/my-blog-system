@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 
 import VideoOverlayContext from '@/providers/VideoContext';
 
-// import { MainDiv } from '../MainDiv/MainDiv';
 import BodyComposer from '../BodyComposer/BodyComposer';
+import { MainDiv } from '../MainDiv/MainDiv';
 
 type FCProps = {
   embedLink: string;
   embedTitle: string;
-  closeIconSrc: string;
   handleOnClose?: () => void;
   handleOnOpen?: () => void;
   handleOnLoaded?: () => void;
@@ -17,7 +16,6 @@ type FCProps = {
 export const YouTubeOverlay = ({
   embedLink,
   embedTitle,
-  closeIconSrc,
   handleOnClose,
   handleOnOpen,
   handleOnLoaded,
@@ -34,27 +32,30 @@ export const YouTubeOverlay = ({
     setCreateOverlay(true);
   }, [embedLink, embedTitle]);
 
-  // useEffect(() => {
-  //   if (createOverlay) {
-  //     const timer = setTimeout(() => setShowState(true), 120);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [createOverlay]);
+  useEffect(() => {
+    if (createOverlay) {
+      const timer = setTimeout(() => setShowState(true), 120);
+      return () => clearTimeout(timer);
+    }
+  }, [createOverlay]);
+
+  const contextValue = {
+    handleOnClose,
+    handleOnOpen,
+    handleOnLoaded,
+  };
 
   if (!createOverlay && !showState) return null;
 
   return (
-    <VideoOverlayContext.Provider
-      value={{ handleOnClose, handleOnOpen, handleOnLoaded }}
-    >
-      {/* <MainDiv show={showState}> */}
-      <BodyComposer
-        embedLink={embedLink}
-        embedTitle={embedTitle}
-        closeIconSrc={closeIconSrc}
-        onCloseHandler={onCloseHandler}
-      />
-      {/* </MainDiv> */}
+    <VideoOverlayContext.Provider value={contextValue}>
+      <MainDiv show={showState}>
+        <BodyComposer
+          embedLink={embedLink}
+          embedTitle={embedTitle}
+          onCloseHandler={onCloseHandler}
+        />
+      </MainDiv>
     </VideoOverlayContext.Provider>
   );
 };

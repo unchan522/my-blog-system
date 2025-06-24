@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import { useState } from 'react';
 
 import { CircleIcon } from '@/components/CircleIcon/CircleIcon';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { YouTubeOverlay } from '@/components/YouTubeOverlay.tsx/YoutubeOverlay';
+import { YoutubeThumbnail } from '@/components/YoutubeThumbnail/YoutubeThumbnail';
 import { ArticlesProps } from '@/types/article';
 import { getAllArticles } from '@/utils/articles';
 
@@ -14,6 +16,8 @@ export default function Home({ articles }: ArticlesProps) {
     width: '80px',
     height: '80px',
   };
+
+  const [video, setVideo] = useState('');
 
   return (
     <>
@@ -29,16 +33,26 @@ export default function Home({ articles }: ArticlesProps) {
               Unchan / <span>Channel</span>
             </p>
           </div>
-          {/* <div className={style['self-introduction']}></div> */}
+          <div className={style['self-introduction']}></div>
           <div className={style['self-video']}>
             {articles.map((article, index) => (
-              <YouTubeOverlay
+              <YoutubeThumbnail
                 key={index}
-                embedLink={article.fontMatter.embedLink}
-                embedTitle={article.fontMatter.embedTitle}
-                closeIconSrc={article.fontMatter.closeIconSrc || ''}
+                youtubeLink={article.fontMatter.embedLink}
+                width={300}
+                height={200}
+                onClick={() => setVideo(article.fontMatter.embedLink)}
               />
             ))}
+            {video && (
+              <YouTubeOverlay
+                embedLink={video}
+                embedTitle={'Unchan Channel Video'}
+                handleOnClose={() => {
+                  setVideo('');
+                }}
+              />
+            )}
           </div>
         </div>
       </main>
@@ -49,8 +63,6 @@ export default function Home({ articles }: ArticlesProps) {
 
 export const getStaticProps = async () => {
   const articles = getAllArticles();
-
-  console.log('Articles:', articles);
 
   return {
     props: { articles },

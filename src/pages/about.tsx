@@ -10,7 +10,7 @@ function About() {
       <Header />
       <main className={style['main-container']}>
         <div className={style['main-inner']}>
-          <h2 className={style['page-title']}>Works</h2>
+          <h2 className={style['page-title']}>About</h2>
           <div className={style['under-construction']}>
             <p>Under Construction...</p>
             <EyeCatch emoji="👷" />
